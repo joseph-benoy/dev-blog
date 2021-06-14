@@ -7,7 +7,7 @@ var logger = require('morgan');
 let indexPostRouter = require('./routes/indexPost');
 let postRouter = require('./routes/post');
 let searchRouter = require('./routes/searchPost');
-
+let getCategoryRouter = require('./routes/getCategoryList');
 
 
 var app = express();
@@ -22,9 +22,11 @@ app.use(cookieParser());
 app.use('/indexPost',indexPostRouter);
 app.use('/post',postRouter);
 app.use('/searchPost',searchRouter);
+app.use('/getCategory',getCategoryRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  res.json({error:'Invalid endpoint'});
 });
 
 // error handler
