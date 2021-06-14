@@ -1,8 +1,15 @@
 let express = require('express');
 let router = express.Router();
-let mysql = require('mysql');
-
+let db = require('../config/db');
 router.get('/',(req,res)=>{
-    const offset = (req.query.pageNo-1)*req.query.postsPerPage;
-    
+    db.query(`SELECT ID,TITLE,TITLE_SLAG,DATE,COVER_IMAGE_LOCATION FROM POST`,(err,result,fileds)=>{
+        if(err){
+            res.json(err);
+        }
+        else{
+            res.json(result);
+        }
+    });
 });
+
+module.exports = router;
