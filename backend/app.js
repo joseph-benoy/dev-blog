@@ -8,7 +8,7 @@ let indexPostRouter = require('./routes/indexPost');
 let postRouter = require('./routes/post');
 let searchRouter = require('./routes/searchPost');
 let getCategoryRouter = require('./routes/getCategoryList');
-
+let datePostRouter = require('./routes/postByDate');
 
 var app = express();
 
@@ -23,6 +23,25 @@ app.use('/indexPost',indexPostRouter);
 app.use('/post',postRouter);
 app.use('/searchPost',searchRouter);
 app.use('/categories',getCategoryRouter);
+app.use('/postByDate',datePostRouter);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
