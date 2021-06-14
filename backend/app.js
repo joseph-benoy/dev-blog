@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use('/indexPost',indexPostRouter);
 app.use('/post',postRouter);
 app.use('/searchPost',searchRouter);
-app.use('/getCategory',getCategoryRouter);
+app.use('/categories',getCategoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
