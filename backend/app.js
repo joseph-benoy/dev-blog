@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 let indexPostRouter = require('./routes/indexPost');
 let postRouter = require('./routes/post');
-
+let searchRouter = require('./routes/searchPost');
 
 
 
@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 app.use('/indexPost',indexPostRouter);
 app.use('/post',postRouter);
-
+app.use('/searchPost',searchRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
