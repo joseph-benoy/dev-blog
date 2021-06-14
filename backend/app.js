@@ -9,6 +9,8 @@ let postRouter = require('./routes/post');
 let searchRouter = require('./routes/searchPost');
 let getCategoryRouter = require('./routes/getCategoryList');
 let datePostRouter = require('./routes/postByDate');
+let categoryPostRouter = require('./routes/postByCategory');
+
 
 var app = express();
 
@@ -24,7 +26,7 @@ app.use('/post',postRouter);
 app.use('/searchPost',searchRouter);
 app.use('/categories',getCategoryRouter);
 app.use('/postByDate',datePostRouter);
-
+app.use('/postByCategory',categoryPostRouter);
 
 
 
