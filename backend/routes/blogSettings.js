@@ -2,17 +2,19 @@ let router = require('express').Router();
 let db = require('../config/db');
 
 router.get('/',(req,res)=>{
-    if(req.query.id&&req.query.id!=''){
-        const sql = `SELECT * FROM BLOG_SETTINGS`;
-        db.query(sql,(err,result)=>{
-            if(err){
-                res.json(err);
+    const sql = `SELECT * FROM BLOG_SETTINGS`;
+    db.query(sql,(err,result)=>{
+        if(err){
+            res.json(err);
+        }
+        else{
+            let settings = {};
+            for(let i of result){
+                settings[i['PARAM']] = i['VALUE'];
             }
-            else{
-                res.json(result);
-            }
-        });
-    }
+            res.json(settings);
+        }
+    });
 });
 
 module.exports = router;
