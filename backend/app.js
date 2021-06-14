@@ -10,6 +10,9 @@ let searchRouter = require('./routes/searchPost');
 let getCategoryRouter = require('./routes/getCategoryList');
 let datePostRouter = require('./routes/postByDate');
 let categoryPostRouter = require('./routes/postByCategory');
+let adminDetailsRouter = require('./routes/adminDetails');
+let blogSettingsRouter = require('./routes/blogSettings');
+
 
 
 var app = express();
@@ -27,8 +30,8 @@ app.use('/searchPost',searchRouter);
 app.use('/categories',getCategoryRouter);
 app.use('/postByDate',datePostRouter);
 app.use('/postByCategory',categoryPostRouter);
-
-
+app.use('/adminDetails',adminDetailsRouter);
+app.use('/admin/blogSettings',blogSettingsRouter);
 
 
 
